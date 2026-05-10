@@ -1,0 +1,15 @@
+{
+  "name": "BCP COM Premium",
+  "short_name": "BCP COM",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#122e59",
+  "theme_color": "#122e59",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2892/2892671.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

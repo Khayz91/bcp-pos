@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BCP COM Premium</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body class="light-mode">
+    <div class="header">
+        <div class="header-left">
+            <button class="header-btn" onclick="backupData()"><span class="material-icons-round">cloud_download</span></button>
+            <button class="header-btn" onclick="exportLaporan()" style="margin-left: 8px;"><span class="material-icons-round">summarize</span></button>
+        </div>
+        <div class="header-title">
+            <h1 style="font-size: 20px; letter-spacing: 1px;">BCP COM</h1>
+            <p style="font-size: 10px; opacity: 0.8;">PREMIUM POS SYSTEM</p>
+        </div>
+        <div class="header-right">
+            <button class="header-btn" onclick="toggleTheme()" id="themeBtn"><span class="material-icons-round">dark_mode</span></button>
+        </div>
+    </div>
+
+    <div class="tab-nav">
+        <button id="btnTabInput" class="tab-btn active" onclick="switchTab('input')"><i class="material-icons-round">edit_note</i><span>INPUT</span></button>
+        <button id="btnTabRiwayat" class="tab-btn" onclick="switchTab('riwayat')"><i class="material-icons-round">history</i><span>RIWAYAT</span></button>
+    </div>
+
+    <div class="content">
+        <div id="tabInput" class="tab-panel active">
+            <div class="card glass">
+                <div class="category-toggle">
+                    <button id="btnKatServis" class="active" onclick="setKategori('Servis')">SERVIS</button>
+                    <button id="btnKatLaptop" onclick="setKategori('Laptop')">JUAL LAPTOP</button>
+                </div>
+                <div class="input-group"><i class="material-icons-round">person</i><input type="text" id="inpUnit" placeholder="Nama Pelanggan / Unit"></div>
+                
+                <div id="areaServis">
+                    <div class="input-group"><i class="material-icons-round">build</i><input type="text" id="inpPart" placeholder="Jenis Servis / Part"></div>
+                </div>
+
+                <div id="areaLaptop" style="display:none;">
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="inpProsesor" placeholder="Prosesor" style="margin-bottom:10px">
+                        <input type="text" id="inpRam" placeholder="RAM" style="margin-bottom:10px">
+                    </div>
+                    <input type="text" id="inpSsd" placeholder="Storage" style="margin-bottom:10px">
+                    <select id="inpKondisi" style="margin-bottom:14px">
+                        <option value="Second">Kondisi: Second</option>
+                        <option value="Baru">Kondisi: Baru</option>
+                    </select>
+                </div>
+
+                <div class="input-group"><i class="material-icons-round">payments</i><input type="text" id="inpHarga" placeholder="Harga Jual" inputmode="numeric" oninput="formatRupiah(this)"></div>
+                <div class="input-group"><i class="material-icons-round">account_balance_wallet</i><input type="text" id="inpModal" placeholder="Harga Modal" inputmode="numeric" oninput="formatRupiah(this)"></div>
+                
+                <button class="btn-green" onclick="simpanData()">SIMPAN TRANSAKSI</button>
+                <button class="btn-reset" onclick="resetData()">BERSIHKAN SEMUA DATA</button>
+            </div>
+        </div>
+
+        <div id="tabRiwayat" class="tab-panel">
+            <div class="dashboard-row">
+                <div class="dash-card card-unit">
+                    <span class="dash-label">Total Unit</span>
+                    <span class="dash-value" id="dashUnit">0</span>
+                </div>
+                <div class="dash-card card-cuan">
+                    <span class="dash-label">Total Cuan</span>
+                    <span class="dash-value" id="dashLaba" style="color:var(--accent)">Rp 0</span>
+                </div>
+            </div>
+            
+            <div class="search-box">
+                <i class="material-icons-round">search</i>
+                <input type="text" id="search" placeholder="Cari nama pelanggan..." oninput="renderHistory()">
+            </div>
+
+            <div id="boxRiwayat"></div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="detailModal">
+        <div class="modal-content glass">
+            <h2 style="margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; color: var(--primary);">Rincian Transaksi</h2>
+            <div id="modalBodyText" style="line-height: 2;"></div>
+            <div style="display:flex; gap:12px; margin-top:30px;">
+                <button onclick="hapusCurrent()" style="flex:1; background:#ef4444; color:white; border:none; padding:15px; border-radius:15px; font-weight:bold; cursor:pointer;">HAPUS</button>
+                <button onclick="closeModal()" style="flex:1; background: var(--bg); color: var(--text); border:1px solid var(--border); padding:15px; border-radius:15px; font-weight:bold; cursor:pointer;">TUTUP</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="toast">Data Tersimpan!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
