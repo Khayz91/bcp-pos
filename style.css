@@ -62,3 +62,21 @@ input:focus { border-color: var(--primary); }
 
 #toast { visibility: hidden; min-width: 200px; background: #1a1a1a; color: #fff; text-align: center; border-radius: 30px; padding: 12px; position: fixed; z-index: 99; left: 50%; bottom: 40px; transform: translateX(-50%); font-weight: bold; opacity: 0; transition: 0.3s; border: 1px solid #333; }
 #toast.show { visibility: visible; opacity: 1; }
+/* --- FIX DEMPETAN BAR ATAS --- */
+.header-left { 
+    display: flex; 
+    gap: 10px; 
+    align-items: center; 
+}
+.header-title {
+    flex: 1;
+    text-align: center;
+    margin: 0 10px;
+}
+
+/* --- FIX WARNA HEADER MODE GELAP --- */
+body.dark-mode .header {
+    background: #0f172a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+}
