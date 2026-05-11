@@ -80,3 +80,23 @@ body.dark-mode .header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: none;
 }
+/* --- EFEK AIR (RIPPLE) --- */
+.header-btn, .tab-btn, .btn-green, .history-item { 
+    position: relative; 
+    overflow: hidden; 
+}
+.ink { 
+    position: absolute; 
+    background: rgba(255, 255, 255, 0.4); 
+    border-radius: 50%; 
+    transform: scale(0); 
+    animation: ripple-anim 0.6s linear; 
+    pointer-events: none; 
+}
+body.dark-mode .ink { 
+    background: rgba(255, 255, 255, 0.2); 
+}
+@keyframes ripple-anim { 
+    to { transform: scale(4); opacity: 0; } 
+}
+
