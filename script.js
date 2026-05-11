@@ -162,3 +162,18 @@ function exportLaporan() {
     showToast("Laporan Berhasil Didownload!");
 }
 renderHistory();
+// --- LOGIKA EFEK AIR (RIPPLE) ---
+document.addEventListener('click', function(e) {
+    let btn = e.target.closest('.header-btn, .tab-btn, .btn-green, .history-item');
+    if (!btn) return;
+    let ink = document.createElement('span');
+    ink.className = 'ink';
+    let rect = btn.getBoundingClientRect();
+    let size = Math.max(rect.width, rect.height);
+    ink.style.width = ink.style.height = size + 'px';
+    ink.style.left = (e.clientX - rect.left - size/2) + 'px';
+    ink.style.top = (e.clientY - rect.top - size/2) + 'px';
+    btn.appendChild(ink);
+    setTimeout(() => ink.remove(), 600);
+});
+
