@@ -1,13 +1,13 @@
 {
-  "name": "BCP COM Premium",
-  "short_name": "BCP COM",
+  "name": "Data Penjualan Premium",
+  "short_name": "Data Penjualan",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#122e59",
+  "background_color": "#0f172a",
   "theme_color": "#122e59",
   "icons": [
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/3067/3067261.png",
+      "src": "logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
